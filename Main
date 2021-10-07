@@ -1,0 +1,62 @@
+package Clases;
+import java.util.Scanner;
+
+public class Main {
+    static int OpcionUsuario = -1;                                     
+    static Scanner scanner = new Scanner(System.in);  
+    
+
+    public static void main(String[] args) {
+    	Empleados emple = new Empleados();
+    	Operativos ope = new Operativos();
+    	Administrativo admi = new Administrativo();
+    	Tecnico tecni = new Tecnico();
+    	NoTecnico notecni = new NoTecnico();
+        while (OpcionUsuario != 0)
+        {
+            try{
+                System.out.println("***   PLANTA DE PRODUCCION ***\n");
+                System.out.println("     .:: MENU PRINCIPAL ::.   \n");
+                System.out.println("1. Operativos.                      ");
+                System.out.println("2. Administrativos.              ");            
+                System.out.println("3. Tecnicos.                     ");
+                System.out.println("4. No Tecnicos.                      ");
+                System.out.println("0. Salir                      \n");
+                System.out.print("Señor usuario, elige opción: _    ");
+                OpcionUsuario = Integer.parseInt(scanner.nextLine()); 
+
+                switch(OpcionUsuario)
+                {
+                    case 1: 
+                        ope.ConsultarCostos();
+                        ope.ActualizarCursos();
+                        break;
+                    case 2: 
+                        admi.ConsularNom();
+                        admi.GenInform();
+                        admi.ModifTitulos();
+                        break;
+                    case 3: 
+                        tecni.ActualizarDatos();
+                        tecni.ConsularNom();
+                        tecni.ActualizarCursos();
+                        break;
+                    case 4: 
+                    	notecni.ActualizarDatos();
+                    	notecni.ActualizarCursos();
+                    	notecni.ActualizarDatos();
+                        break;
+                    case 0: 
+                        System.out.println("Adios!");
+                        break;
+                    default:
+                        System.out.println("Opción no reconocida");break;
+                }
+                System.out.println("\n"); 
+            }
+            catch(Exception e){
+                System.out.println("Uoop! Error!");
+            }
+        }
+    }    
+} 
